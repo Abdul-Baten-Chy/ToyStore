@@ -43,10 +43,10 @@ const NavBar = () => {
               </ul>
             </li>
             <li>
-              <Link>SHOP</Link>
+              <Link to={"/shop"}>SHOP</Link>
             </li>
             <li>
-              <Link>ADD PRODUCT</Link>
+              <Link to={"/addProduct"}>ADD PRODUCT</Link>
             </li>
           </ul>
         </div>
@@ -76,10 +76,10 @@ const NavBar = () => {
             </details>
           </li>
           <li>
-            <Link>SHOP</Link>
+            <Link to={"/shop"}>SHOP</Link>
           </li>
           <li>
-            <Link>ADD PRODUCT</Link>
+            <Link to={"/addProduct"}>ADD PRODUCT</Link>
           </li>
         </ul>
       </div>

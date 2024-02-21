@@ -9,31 +9,37 @@ const categoryData = [
   {
     id: crypto.randomUUID(),
     name: "Toy Car",
+    category: "car",
     img: img1,
   },
   {
     id: crypto.randomUUID(),
     name: "Toy Gun",
+    category: "gun",
     img: img2,
   },
   {
     id: crypto.randomUUID(),
     name: "Toy Dolls",
+    category: "dolls",
     img: img3,
   },
   {
     id: crypto.randomUUID(),
     name: "Toy helicopter",
+    category: "helicopter",
     img: img4,
   },
   {
     id: crypto.randomUUID(),
     name: "Toy Robot",
+    category: "robot",
     img: img5,
   },
   {
     id: crypto.randomUUID(),
     name: "Toy Game",
+    category: "game",
     img: img6,
   },
 ];

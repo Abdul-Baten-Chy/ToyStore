@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import data from "../Data/CategoryData.jsx";
 const Category = () => {
   return (
@@ -17,7 +18,10 @@ const Category = () => {
             <div className="card-body flex flex-col items-center gap-10 justify-center">
               <h2 className="card-title text-xl">{item.name}</h2>
               <div className="card-actions">
-                <button className="btn btn-primary">BROWSE</button>
+                <Link to={`/productByCategory/${item.category}`}>
+                  {" "}
+                  <button className="btn btn-primary">BROWSE</button>
+                </Link>
               </div>
             </div>
           </div>
