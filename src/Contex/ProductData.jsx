@@ -13,10 +13,29 @@ const ProductData = ({ children }) => {
       return res.data;
     },
   });
+  const { data: cart = [], refetch } = useQuery({
+    queryKey: ["cart"],
+    queryFn: async () => {
+      const res = await axiosPub.get("/cart");
+      return res.data;
+    },
+  });
 
   const [selectedProduct, setSelectedProduct] = useState({});
-  console.log(selectedProduct);
-  const info = { products, setSelectedProduct, selectedProduct };
+  const handleAddToCart = (productId, user) => {
+    const cartInfo = { productId, user };
+    const res = axiosPub.post("/cart", cartInfo);
+    console.log(res);
+  };
+
+  const info = {
+    products,
+    setSelectedProduct,
+    selectedProduct,
+    handleAddToCart,
+    cart,
+    refetch,
+  };
   return (
     <div>
       <DataContext.Provider value={info}>{children}</DataContext.Provider>

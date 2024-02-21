@@ -3,7 +3,10 @@ import AddProduct from "./Components/AddProduct";
 import Home from "./Components/Home";
 import ProductByCategory from "./Components/ProductByCategory";
 import ProductDeatils from "./Components/ProductDeatils";
+import SignIn from "./Components/SignIn";
+import SignUp from "./Components/SignUp";
 import ErrorPage from "./ErrorPage";
+import Private from "./Hooks/Private";
 import Root from "./Root";
 import Shops from "./Shops/Shops";
 
@@ -19,7 +22,11 @@ const router = createBrowserRouter([
       },
       {
         path: "/addProduct",
-        element: <AddProduct />,
+        element: (
+          <Private>
+            <AddProduct />
+          </Private>
+        ),
       },
       {
         path: "/shop",
@@ -33,7 +40,19 @@ const router = createBrowserRouter([
       },
       {
         path: "/shop/deatails",
-        element: <ProductDeatils />,
+        element: (
+          <Private>
+            <ProductDeatils />
+          </Private>
+        ),
+      },
+      {
+        path: "/signUp",
+        element: <SignUp></SignUp>,
+      },
+      {
+        path: "/signIn",
+        element: <SignIn></SignIn>,
       },
     ],
   },
