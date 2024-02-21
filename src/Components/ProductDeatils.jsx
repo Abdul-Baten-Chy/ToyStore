@@ -6,7 +6,7 @@ const ProductDeatils = () => {
   const { selectedProduct, handleAddToCart, refetch } = useContext(DataContext);
   const { user } = useContext(MyContextProvider);
   const handleCart = () => {
-    handleAddToCart(selectedProduct._id, user.email);
+    handleAddToCart(selectedProduct, user.email);
     refetch();
   };
 

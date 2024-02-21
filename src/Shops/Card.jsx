@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { DataContext } from "../Contex/ProductData";
 
 /* eslint-disable react/prop-types */
@@ -26,6 +26,11 @@ const Card = ({ product }) => {
           {/* <Link to={"/shop/deatails"}>
             
           </Link> */}
+          <Link to={`/update/${product._id}`}>
+            <button className="bg-[#34BFE6] text-white py-2 px-4 font-bold  mt-8">
+              Update
+            </button>
+          </Link>
           <button
             className="bg-[#34BFE6] text-white py-2 px-4 font-bold  mt-8"
             onClick={handleDatils}

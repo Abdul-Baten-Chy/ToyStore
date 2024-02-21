@@ -3,7 +3,6 @@ import Card from "../Shops/Card";
 
 const ProductByCategory = () => {
   const data = useLoaderData();
-  console.log(data);
   return (
     <div>
       <h2 className="mt-28 text-center text-2xl font-bold">

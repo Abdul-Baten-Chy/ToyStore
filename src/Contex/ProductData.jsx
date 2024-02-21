@@ -1,6 +1,7 @@
 /* eslint-disable react/prop-types */
 import { useQuery } from "@tanstack/react-query";
 import { createContext, useState } from "react";
+import Swal from "sweetalert2";
 import useBaseUrl from "../Hooks/useBaseUrl";
 
 export const DataContext = createContext(null);
@@ -20,12 +21,23 @@ const ProductData = ({ children }) => {
       return res.data;
     },
   });
-
   const [selectedProduct, setSelectedProduct] = useState({});
-  const handleAddToCart = (productId, user) => {
-    const cartInfo = { productId, user };
-    const res = axiosPub.post("/cart", cartInfo);
-    console.log(res);
+  const handleAddToCart = (product, user) => {
+    const cartInfo = { ...product, user };
+    if (product) {
+      axiosPub.post("/cart", cartInfo).then((res) => {
+        if (res.data.insertedId) {
+          Swal.fire({
+            position: "top-end",
+            icon: "success",
+            title: "product has been added to cart",
+            showConfirmButton: false,
+            timer: 1500,
+          });
+          refetch();
+        }
+      });
+    }
   };
 
   const info = {

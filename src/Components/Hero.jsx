@@ -1,7 +1,7 @@
 import heroImg from "../assets/heroImg-ai.png";
 const Hero = () => {
   return (
-    <div className="max-h-[100vh]  bg-[#B3E7DB] flex justify-center items-center ">
+    <div className="max-h-[100vh]  bg-[#B3E7DB] flex flex-col lg:flex-row justify-center items-center ">
       <div className="flex-1">
         <h1 className="text-5xl uppercase pl-10">
           The Best Online <span className="text-[#34BFE6]">Baby Toy</span> Shop

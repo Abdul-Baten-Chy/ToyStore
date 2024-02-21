@@ -1,10 +1,12 @@
 import { createBrowserRouter } from "react-router-dom";
 import AddProduct from "./Components/AddProduct";
+import CratItems from "./Components/CratItems";
 import Home from "./Components/Home";
 import ProductByCategory from "./Components/ProductByCategory";
 import ProductDeatils from "./Components/ProductDeatils";
 import SignIn from "./Components/SignIn";
 import SignUp from "./Components/SignUp";
+import UpdateProduct from "./Components/UpdateProduct";
 import ErrorPage from "./ErrorPage";
 import Private from "./Hooks/Private";
 import Root from "./Root";
@@ -53,6 +55,20 @@ const router = createBrowserRouter([
       {
         path: "/signIn",
         element: <SignIn></SignIn>,
+      },
+      {
+        path: "/cartItems",
+        element: <CratItems></CratItems>,
+      },
+      {
+        path: "/update/:id",
+        element: (
+          <Private>
+            <UpdateProduct></UpdateProduct>
+          </Private>
+        ),
+        loader: ({ params }) =>
+          fetch(`http://localhost:4000/productsbyId/${params.id}`),
       },
     ],
   },

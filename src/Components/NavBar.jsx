@@ -6,6 +6,8 @@ import logo from "../assets/logo.png";
 const NavBar = () => {
   const { user, handleSignOut } = useContext(MyContextProvider);
   const { cart } = useContext(DataContext);
+  console.log(user);
+
   return (
     <div className="navbar bg-[#BFEAE0]">
       <div className="navbar-start">
@@ -56,7 +58,10 @@ const NavBar = () => {
           </ul>
         </div>
         <div className="max-w-[140px]">
-          <img src={logo}></img>
+          <Link to={"/"}>
+            {" "}
+            <img src={logo}></img>
+          </Link>
         </div>
       </div>
       <div className="navbar-center hidden lg:flex">
@@ -99,23 +104,26 @@ const NavBar = () => {
               className="btn btn-ghost btn-circle"
             >
               <div className="indicator">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="h-5 w-5"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth="2"
-                    d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"
-                  />
-                </svg>
-                <span className="badge badge-sm indicator-item">
-                  {cart.length}
-                </span>
+                <Link to={"/cartItems"}>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    className="h-5 w-5"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth="2"
+                      d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"
+                    />
+                  </svg>
+
+                  <span className="badge badge-sm indicator-item">
+                    {cart.length}
+                  </span>
+                </Link>
               </div>
             </div>
           </div>
@@ -126,10 +134,7 @@ const NavBar = () => {
               className="btn btn-ghost btn-circle avatar"
             >
               <div className="w-10 rounded-full">
-                <img
-                  alt="Tailwind CSS Navbar component"
-                  src="https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg"
-                />
+                <img alt="Tailwind CSS Navbar component" src={user.photoURL} />
               </div>
             </div>
             <ul
@@ -145,6 +150,7 @@ const NavBar = () => {
                   <Link to={"/signIn"}>Sign In</Link>
                 </li>
               )}
+              <li> {user.displayName}</li>
             </ul>
           </div>
         </div>
